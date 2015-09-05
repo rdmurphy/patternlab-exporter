@@ -41,18 +41,6 @@ python manage.py migrate
 ```
 (where "appname" is the name of the application with the updated model)
 
-## Running in Python 3
-
-Django works in either python 2 or 3, but the sample models were written for python 2. To update for python 3, open blog/models.py, features/models.py and hero/models.py and change 'unicode' to 'str'. E.g.
-```
-def __unicode__(self):
-```
-would become
-```
-def __str__(self):
-```
-This is really only necessary to display things correctly in the control panel.
-
 ## Pagination
 
 Since the converter is shared between several different content management systems, it isn't very well tailored to any of them so the same code can be used across all. In particular, the code for pagination really doesn't make very good use of django's [pagination module](https://docs.djangoproject.com/en/1.8/topics/pagination/). The blog views end up re-implementing pagination themselves instead. If your project has a lot of pagination you may want to customize the import script so you can make better use of the built-in module.
